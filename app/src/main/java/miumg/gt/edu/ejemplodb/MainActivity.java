@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAll() {
-        String query = "select * from asignatura";
+        String query = "select * from asignatura;";
 
         SQLiteDatabase bd = adminAsignaturas.getReadableDatabase();
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor c = bd.rawQuery(query, null);
 
-        do {
+        while (c.moveToNext()) {
             Asignatura aTemp = new Asignatura();
 
             aTemp.setCodigo(c.getInt(c.getColumnIndex("codigo")));
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             aTemp.setCantEstudiantes(c.getInt(c.getColumnIndex("cantestudiantes")));
 
             asignaturas.add(aTemp);
-        } while (c.moveToNext());
+        }
         adapterAsignaturas.notifyDataSetChanged();
     }
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         if (cant==1)
             Toast.makeText(this, "Asignatura eliminada", Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(this, "No existe la asignatura", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No existe la asignatura " + codigo, Toast.LENGTH_SHORT).show();
 
         bd.close();
 
