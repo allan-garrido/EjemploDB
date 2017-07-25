@@ -11,12 +11,19 @@
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Codigo" />
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Asignatura" />
 
     <EditText
-        android:id="@+id/et2"
+        android:id="@+id/et3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

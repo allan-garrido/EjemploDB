@@ -1,3 +1,5 @@
+package miumg.gt.edu.ejemplodb;
+
 /**
  * Created by Allan Garrido on 24/07/2017.
  */
@@ -39,6 +41,13 @@ public class Asignatura {
 
     public Asignatura() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Codigo: " + codigo +
+               "Nombre: " + nombre +
+               "Cantidad estudiantes: " + cantEstudiantes;
     }
 }
 
