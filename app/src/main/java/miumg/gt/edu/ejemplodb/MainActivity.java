@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Asignatura insertada", Toast.LENGTH_SHORT).show();
         showAll();
     }
-    public void del(View view) {}
+
     public void showAll() {
         String query = "select * from asignatura";
 
@@ -80,5 +80,24 @@ public class MainActivity extends AppCompatActivity {
             asignaturas.add(aTemp);
         } while (c.moveToNext());
         adapterAsignaturas.notifyDataSetChanged();
+    }
+
+
+    public void del(View view) {
+        SQLiteDatabase bd = adminAsignaturas.getWritableDatabase();
+
+        String codigo;
+        codigo = et1.getText().toString();
+
+        int cant = bd.delete("asignatura","codigo="+codigo, null);
+
+        if (cant==1)
+            Toast.makeText(this, "Asignatura eliminada", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "No existe la asignatura", Toast.LENGTH_SHORT).show();
+
+        bd.close();
+
+        showAll();
     }
 }
