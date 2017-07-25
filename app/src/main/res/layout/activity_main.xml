@@ -11,6 +11,7 @@
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:inputType="textPersonName"
         android:hint="Asignatura" />
 
@@ -18,6 +19,7 @@
         android:id="@+id/et2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:inputType="number"
         android:hint="Cantidad de estudiantes" />
 
