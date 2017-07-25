@@ -1,6 +1,7 @@
 package miumg.gt.edu.ejemplodb;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,6 +62,23 @@ public class MainActivity extends AppCompatActivity {
     }
     public void del(View view) {}
     public void showAll() {
+        String query = "select * from asignatura";
 
+        SQLiteDatabase bd = adminAsignaturas.getReadableDatabase();
+
+        asignaturas.clear();
+
+        Cursor c = bd.rawQuery(query, null);
+
+        do {
+            Asignatura aTemp = new Asignatura();
+
+            aTemp.setCodigo(c.getInt(c.getColumnIndex("codigo")));
+            aTemp.setNombre(c.getString(c.getColumnIndex("nombreasignatura")));
+            aTemp.setCantEstudiantes(c.getInt(c.getColumnIndex("cantestudiantes")));
+
+            asignaturas.add(aTemp);
+        } while (c.moveToNext());
+        adapterAsignaturas.notifyDataSetChanged();
     }
 }
