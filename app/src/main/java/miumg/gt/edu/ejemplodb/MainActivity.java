@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Asignatura insertada", Toast.LENGTH_SHORT).show();
         showAll();
+
+        et1.setText("");
+        et2.setText("");
+        et3.setText("");
     }
 
     public void showAll() {
